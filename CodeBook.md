@@ -17,13 +17,100 @@ The raw data used to create the tidy data set is contained in the following file
 * X_test.txt: accelerometer and gyroscope data for test group
 * X_train.txt: accelerometer and gyroscope data for training group
 
-The description of the accelerometer and gyroscope data is contained in features_info.txt.  
+The description of the accelerometer and gyroscope data is contained in features_info.txt.  The labels for this data is contained in features.txt
 
 The mapping of the activity codes to activity names is contained in activity_labels.txt  
 
 ### Transformations:
 The raw data is transformed in the following way:
-
+* Column bind the 3 test group files into a single data table
+* Column bind the 3 training group files into a single data table
+* Row bind the test and training data tables together into a single data table
+* Create a vector of column names containing 'subject', 'activity', and the variable names contained in features.txt
+* Clean up the variable names derived from features.txt
+* Attach column names to data table
+* Select only the mean and standard deviation (std) columns as indicated by assignment
+* Group data by subject and activity and calculate the mean for each variable
+* Write table to text file
 
 ### Processed data:
-The final processed data set (final_tidy.txt) contains the average value for each subject/activity pair each of the following 79 variables: 
+The final processed data set (final_tidy.txt) consists of 180 rows (30 subjects x 6 activities).  For each subject/activity pair, the data set contains the average value of the following 79 variables:
+* "timeBodyAcceleration.mean.X"              
+* "timeBodyAcceleration.mean.Y"              
+* "timeBodyAcceleration.mean.Z"              
+* "timeGravityAcceleration.mean.X"           
+* "timeGravityAcceleration.mean.Y"           
+* "timeGravityAcceleration.mean.Z"           
+* "timeBodyAccelerationJerk.mean.X"          
+* "timeBodyAccelerationJerk.mean.Y"          
+* "timeBodyAccelerationJerk.mean.Z"          
+* "timeBodyGyro.mean.X"                      
+* "timeBodyGyro.mean.Y"                      
+* "timeBodyGyro.mean.Z"                      
+* "timeBodyGyroJerk.mean.X"                  
+* "timeBodyGyroJerk.mean.Y"                  
+* "timeBodyGyroJerk.mean.Z"                  
+* "timeBodyAccelerationMag.mean"             
+* "timeGravityAccelerationMag.mean"          
+* "timeBodyAccelerationJerkMag.mean"         
+* "timeBodyGyroMag.mean"                     
+* "timeBodyGyroJerkMag.mean"                 
+* "frequencyBodyAcceleration.mean.X"         
+* "frequencyBodyAcceleration.mean.Y"         
+* "frequencyBodyAcceleration.mean.Z"         
+* "frequencyBodyAcceleration.meanFreq.X"     
+* "frequencyBodyAcceleration.meanFreq.Y"     
+* "frequencyBodyAcceleration.meanFreq.Z"     
+* "frequencyBodyAccelerationJerk.mean.X"     
+* "frequencyBodyAccelerationJerk.mean.Y"     
+* "frequencyBodyAccelerationJerk.mean.Z"     
+* "frequencyBodyAccelerationJerk.meanFreq.X" 
+* "frequencyBodyAccelerationJerk.meanFreq.Y" 
+* "frequencyBodyAccelerationJerk.meanFreq.Z" 
+* "frequencyBodyGyro.mean.X"                 
+* "frequencyBodyGyro.mean.Y"                 
+* "frequencyBodyGyro.mean.Z"                 
+* "frequencyBodyGyro.meanFreq.X"             
+* "frequencyBodyGyro.meanFreq.Y"             
+* "frequencyBodyGyro.meanFreq.Z"             
+* "frequencyBodyAccelerationMag.mean"        
+* "frequencyBodyAccelerationMag.meanFreq"    
+* "frequencyBodyAccelerationJerkMag.mean"    
+* "frequencyBodyAccelerationJerkMag.meanFreq"
+* "frequencyBodyGyroMag.mean"                
+* "frequencyBodyGyroMag.meanFreq"            
+* "frequencyBodyGyroJerkMag.mean"            
+* "frequencyBodyGyroJerkMag.meanFreq"        
+* "timeBodyAcceleration.std.X"               
+* "timeBodyAcceleration.std.Y"               
+* "timeBodyAcceleration.std.Z"               
+* "timeGravityAcceleration.std.X"            
+* "timeGravityAcceleration.std.Y"            
+* "timeGravityAcceleration.std.Z"            
+* "timeBodyAccelerationJerk.std.X"           
+* "timeBodyAccelerationJerk.std.Y"           
+* "timeBodyAccelerationJerk.std.Z"           
+* "timeBodyGyro.std.X"                       
+* "timeBodyGyro.std.Y"                       
+* "timeBodyGyro.std.Z"                       
+* "timeBodyGyroJerk.std.X"                   
+* "timeBodyGyroJerk.std.Y"                   
+* "timeBodyGyroJerk.std.Z"                   
+* "timeBodyAccelerationMag.std"              
+* "timeGravityAccelerationMag.std"           
+* "timeBodyAccelerationJerkMag.std"          
+* "timeBodyGyroMag.std"                      
+* "timeBodyGyroJerkMag.std"                  
+* "frequencyBodyAcceleration.std.X"          
+* "frequencyBodyAcceleration.std.Y"          
+* "frequencyBodyAcceleration.std.Z"          
+* "frequencyBodyAccelerationJerk.std.X"      
+* "frequencyBodyAccelerationJerk.std.Y"      
+* "frequencyBodyAccelerationJerk.std.Z"      
+* "frequencyBodyGyro.std.X"                  
+* "frequencyBodyGyro.std.Y"                  
+* "frequencyBodyGyro.std.Z"                  
+* "frequencyBodyAccelerationMag.std"         
+* "frequencyBodyAccelerationJerkMag.std"     
+* "frequencyBodyGyroMag.std"                 
+* "frequencyBodyGyroJerkMag.std"
