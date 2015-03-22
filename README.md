@@ -9,4 +9,4 @@ It is assumed that run_analysis.R will be run from a directory containing the un
 * Run this command: source('run_analysis.R')
 
 The working directory should now contain a file named final_tidy.txt  In order to read this file into R, run the following command:
-* <outputname> <- read.table(<filepath>, header = TRUE)
+* outputname <- read.table(filepath, header = TRUE)
